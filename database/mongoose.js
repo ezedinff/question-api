@@ -1,15 +1,11 @@
 var mongoose = require('mongoose');
 
 const Initialize =  () => {
-    const db_host = process.env.DB_HOST || 'localhost';
-    const db_port = process.env.DB_PORT || 27017;
-    const db_name = process.env.DB_NAME || 'my_database';
+    const db_host = process.env.DB_HOST || 'localhost:27017';
+    const db_name = process.env.DB_NAME || 'question_db';
     const db_user = process.env.DB_USER || '';
     const db_pass = process.env.DB_PASS || '';
-    let db_url = `mongodb://${db_host}:${db_port}/${db_name}`;
-    if(process.env.DB_USER && process.env.DB_PASS) {
-        db_url = `mongodb://${db_user}:${db_pass}@${db_host}:${db_port}/${db_name}`;
-    }
+    let db_url = `mongodb+srv://${db_user}:${db_pass}@${db_host}/${db_name}?retryWrites=true&w=majority`;
     const db_options = {
         useNewUrlParser: true,
         useUnifiedTopology: true
