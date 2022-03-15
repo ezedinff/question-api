@@ -7,12 +7,19 @@ var indexRouter = require('./routes/index');
 var dotenv = require('dotenv');
 dotenv.config();
 
+var db = require('./database/mongoose');
+
+
 var app = express();
 
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+
+// Initialize Database
+db();
 
 // register routes
 app.use('/', indexRouter);

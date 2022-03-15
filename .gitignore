@@ -1,4 +1,4 @@
-/IDEs and editors.
+# IDEs and editors.
 /.idea
 .vscode/*
 !.vscode/settings.json
@@ -10,3 +10,7 @@
 
 # dependencies
 /node_modules
+
+
+# hidden files
+.env
