@@ -8,7 +8,9 @@ const Initialize =  () => {
     let db_url = `mongodb+srv://${db_user}:${db_pass}@${db_host}/${db_name}?retryWrites=true&w=majority`;
     const db_options = {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        ssl: true,
+        authenticationDatabase: null
     };
     mongoose.connect(db_url, db_options);
     const db = mongoose.connection;
