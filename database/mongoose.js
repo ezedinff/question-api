@@ -16,7 +16,12 @@ const Initialize =  () => {
     };
     mongoose.connect(db_url, db_options);
     const db = mongoose.connection;
-    db.on('connected', console.log.bind(console, `MongoDB connected to ${db_url}`));
+    db.on('connected', () => {
+        console.log(`MongoDB connected to ${db_url}`);
+        // run seed
+       const seed = require('./seed');
+       seed();
+    });
     db.on('error', console.error.bind(console, 'MongoDB connection error:'));
     db.on('disconnected', console.log.bind(console, 'MongoDB disconnected'));
 };

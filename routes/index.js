@@ -1,10 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const searchController = require('../controllers/search.controller');
+
 
 /* GET */
-router.get('/', function(req, res, next) {
-  const { params } = req;
-  res.send(params);
-});
+router.get('/search', searchController);
 
 module.exports = router;
